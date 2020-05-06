@@ -1,0 +1,6 @@
+*env*/*
+*.__pyc__
+mypy_cache/*
+pytest*/*
+*egg-info*
+.idea/*

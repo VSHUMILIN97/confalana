@@ -1,0 +1,24 @@
+image: python:3.7-stretch
+
+variables:
+  MODULE_NAME: confalana
+
+stages:
+  - test
+  - deploy
+
+before_script:
+  - pip3 install poetry==1.0
+  - python3 -m poetry config virtualenvs.create false
+
+tests:
+  stage: test
+  script:
+    - python3 -m poetry install
+    - python3 -m pytest tests/
+
+mypy:
+  stage: test
+  script:
+    - python3 -m poetry install
+    - python3 -m mypy confalana
